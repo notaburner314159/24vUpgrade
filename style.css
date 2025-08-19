@@ -1,9 +1,29 @@
+/* ----- Theme variables ----- */
+:root {
+  /* light theme */
+  --bg: #fafafa;
+  --text: #222;
+  --link: #0066cc;
+  --border: #262b36;
+  --muted: #555;
+  --card: #f4f4f4;
+}
+:root[data-theme="dark"] {
+  /* dark theme */
+  --bg: #0b0c0f;
+  --text: #e7e9ee;
+  --link: #67d2ff;
+  --border: #eee;
+  --muted: #a7adba;
+  --card: #1a1c24;
+}
+
 /* ----- Base reset ----- */
 body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.7;
-  background: #fafafa;
-  color: #222;
+  background: var(--bg);
+  color: var(--text);
   max-width: 850px;
   margin: 0 auto;
   padding: 1.5rem;
@@ -17,7 +37,7 @@ h1, h2, h3 {
 }
 h1 {
   font-size: 2rem;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid var(--border);
   padding-bottom: 0.5rem;
 }
 h2 { font-size: 1.5rem; }
@@ -28,7 +48,7 @@ p {
   margin: 1rem 0;
 }
 a {
-  color: #0066cc;
+  color: var(--link);
   text-decoration: underline;
 }
 a:hover {
@@ -50,24 +70,24 @@ pre, code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 pre {
-  background: #f4f4f4;
+  background: var(--card);
   padding: 0.75rem 1rem;
   border-radius: 6px;
   overflow-x: auto;
   margin: 1.2rem 0;
 }
 code {
-  background: #f4f4f4;
+  background: var(--card);
   padding: 0.2em 0.4em;
   border-radius: 4px;
 }
 
 /* ----- Blockquotes ----- */
 blockquote {
-  border-left: 4px solid #ccc;
+  border-left: 4px solid var(--border);
   margin: 1.5rem 0;
   padding-left: 1rem;
-  color: #555;
+  color: var(--muted);
   font-style: italic;
 }
 
@@ -77,4 +97,35 @@ ul, ol {
 }
 li {
   margin: 0.3rem 0;
+}
+
+/* --- theme switch --- */
+.theme-switch{
+  position: fixed; top: 16px; right: 16px; z-index: 9999;
+  display: inline-block; width: 50px; height: 28px; cursor: pointer;
+}
+.theme-switch input{ display:none; }
+
+.theme-switch .slider{
+  position: absolute; inset: 0;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08) inset;
+  transition: background .2s ease;
+}
+
+/* knob */
+.theme-switch .slider::before{
+  content:"";
+  position: absolute; height: 22px; width: 22px; left: 3px; top: 50%;
+  transform: translateY(-50%);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  transition: transform .18s ease;
+}
+/* checked state → move knob right */
+.theme-switch input:checked + .slider::before{
+  transform: translate(22px, -50%);
 }
