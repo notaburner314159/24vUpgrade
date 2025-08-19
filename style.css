@@ -1,4 +1,6 @@
 header {
     font-size: 40px;
     color:rgb(143, 31, 3);
+    position: absolute;
+    justify-content: center;
 }
