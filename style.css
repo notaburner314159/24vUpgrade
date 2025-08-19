@@ -112,6 +112,7 @@ figcaption{
 code,kbd,samp,pre{
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
+
 pre{
   background: var(--card);
   border:1px solid var(--border);
