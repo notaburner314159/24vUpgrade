@@ -55,7 +55,7 @@ a:hover {
   text-decoration-thickness: 2px;
 }
 
-final {
+.final {
   display: flex;
   justify-content: center;
   align-items: center;
