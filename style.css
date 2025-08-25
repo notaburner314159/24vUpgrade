@@ -55,6 +55,14 @@ a:hover {
   text-decoration-thickness: 2px;
 }
 
+final {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  color:#0066cc;
+}
+
 /* ----- Images ----- */
 img {
   max-width: 100%;
@@ -129,3 +137,4 @@ li {
 .theme-switch input:checked + .slider::before{
   transform: translate(22px, -50%);
 }
+
